@@ -8,6 +8,7 @@ import java.util.List;
 import com.codepath.apps.basictwitter.models.Tweet;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.format.DateUtils;
 import android.view.LayoutInflater;
@@ -45,16 +46,18 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		imageLoader.displayImage(tweet.getUser().getProfileImageURL(), ivProfileImage);
 		tvUserName.setText(tweet.getUser().getScreenName());
 		tvBody.setText(tweet.getBody());
-		
+		/*
 		String timeString = (String) DateUtils.getRelativeDateTimeString(parent.getContext(), parseTwitterDate(tweet.getCreatedAt()).getTime(), 
 				DateUtils.MINUTE_IN_MILLIS, DateUtils.WEEK_IN_MILLIS, 0);
-		
+		*/
+		String timeString = (String) DateUtils.getRelativeTimeSpanString(parseTwitterDate(tweet.getCreatedAt()).getTime(), 
+				System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS, 0);
 		tvTimeStamp.setText(timeString);
 		
 		return view;
 	}
 	
-	private Date parseTwitterDate(String dateString) {
+	@SuppressLint("SimpleDateFormat") private Date parseTwitterDate(String dateString) {
 		final String TWITTER_FORMAT="EEE MMM dd HH:mm:ss ZZZZZ yyyy";
 		Date date;
 		try{

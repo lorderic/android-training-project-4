@@ -47,6 +47,10 @@
             android:name=".TimelineActivity"
             android:label="@string/title_activity_timeline" >
         </activity>
+        <activity
+            android:name=".PostActivity"
+            android:label="@string/title_activity_post" >
+        </activity>
     </application>
 
 </manifest>

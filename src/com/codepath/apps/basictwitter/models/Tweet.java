@@ -1,19 +1,12 @@
 package com.codepath.apps.basictwitter.models;
 
-import android.annotation.SuppressLint;
-import android.text.format.DateUtils;
-import android.text.style.SuperscriptSpan;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.codepath.apps.basictwitter.TimelineActivity;
 
 public class Tweet {
 	
@@ -28,13 +21,7 @@ public class Tweet {
 		try {
 			tweet.body = json.getString("text");
 			tweet.uid = json.getLong("id");
-			
-			// parse timestamp and store it to createAt
 			tweet.createdAt = json.getString("created_at");
-			/*
-			tweet.createdAt = DateUtils.getRelativeDateTimeString(TimelineActivity., parseTwitterDate(timeString).getTime(), 
-					DateUtils.MINUTE_IN_MILLIS, DateUtils.WEEK_IN_MILLIS, 0);
-			*/
 			tweet.user = User.fromJSON(json.getJSONObject("user"));
 		} catch (JSONException e) {
 			e.printStackTrace();
