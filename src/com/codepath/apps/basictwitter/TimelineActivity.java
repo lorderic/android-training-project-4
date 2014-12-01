@@ -11,12 +11,13 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class TimelineActivity extends Activity {
 
@@ -24,6 +25,7 @@ public class TimelineActivity extends Activity {
 	private ArrayList<Tweet> tweets;
 	private ArrayAdapter<Tweet> aTweets;
 	private ListView lvTweets;
+	private SwipeRefreshLayout swipeContainer;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,11 +33,23 @@ public class TimelineActivity extends Activity {
 		setContentView(R.layout.activity_timeline);
 		client = TwitterApplication.getRestClient();
 		populateTimeline(Long.MAX_VALUE);
+		
 		lvTweets = (ListView) findViewById(R.id.lvTweets);
 		tweets = new ArrayList<Tweet>();
 		aTweets = new TweetArrayAdapter(this, tweets);
 		lvTweets.setAdapter(aTweets);
 		setEndlessScrollListener();
+		
+		swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+		swipeContainer.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Your code to refresh the list here.
+                // Make sure you call swipeContainer.setRefreshing(false)
+                // once the network request has completed successfully.
+            	refreshTimeline();
+            } 
+        });
 	}
 	
 	@Override
@@ -77,13 +91,13 @@ public class TimelineActivity extends Activity {
 	    				}
 	    			}, content);
     			}
-    			
-    			refreshTimeline();
     		}
     		
     		else if (resultCode == RESULT_CANCELED) {
-    			refreshTimeline();
+    			// do nothing
     		}
+    		
+    		refreshTimeline();
     	}
     }
 	
