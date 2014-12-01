@@ -39,12 +39,16 @@ public class TweetArrayAdapter extends ArrayAdapter<Tweet> {
 		
 		ImageView ivProfileImage = (ImageView) view.findViewById(R.id.ivProfileImage);
 		TextView tvUserName = (TextView) view.findViewById(R.id.tvUserName);
+		TextView tvUserScreenName = (TextView) view.findViewById(R.id.tvUserScreenName);
 		TextView tvBody = (TextView) view.findViewById(R.id.tvBody);
 		TextView tvTimeStamp = (TextView) view.findViewById(R.id.tvTimestamp);
 		ivProfileImage.setImageResource(android.R.color.transparent);
+		
+		
 		ImageLoader imageLoader = ImageLoader.getInstance();
 		imageLoader.displayImage(tweet.getUser().getProfileImageURL(), ivProfileImage);
-		tvUserName.setText(tweet.getUser().getScreenName());
+		tvUserName.setText(tweet.getUser().getName());
+		tvUserScreenName.setText("@" + tweet.getUser().getScreenName());
 		tvBody.setText(tweet.getBody());
 		/*
 		String timeString = (String) DateUtils.getRelativeDateTimeString(parent.getContext(), parseTwitterDate(tweet.getCreatedAt()).getTime(), 

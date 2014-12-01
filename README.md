@@ -4,8 +4,9 @@ Android training project 4: Twitter App Client
 This is an Android application of a simple Twitter client that supports viewing 
 a Twitter timeline and composing a new tweet.
 
-Time spent: 5 hours spent on basic requirements. (3 hours on video walkthrough, 
-1 hour on relative timestamp, 1 hour on infinite scroll)
+Time spent: 10 hours spent on basic requirements. (3 hours on video walkthrough, 
+1.5 hour on relative timestamp, 1 hour on infinite scroll, 2.5 hours on compose tweet,
+2 hours on layout and other stuff.)
 
 Completed user stories:
  * [x] Required: User can sign in using OAuth login flow
@@ -21,6 +22,6 @@ Completed user stories:
     
 Walkthrough of all user stories: 
 
-![Video Walkthrough](Not finished yet)
+![Video Walkthrough](anim_twitter_app_client.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
