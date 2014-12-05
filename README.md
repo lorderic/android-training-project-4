@@ -1,29 +1,24 @@
-Android training project 4: Twitter App Client
+Android training project 5: Twitter With Fragments
 ==========================
 
-This is an Android application of a simple Twitter client that supports viewing 
-a Twitter timeline and composing a new tweet.
+This is an Android application of a simple Twitter client that supports switching 
+between user timeline and mention views, composing a new tweet, view user own 
+profiles, and check other user's profile while click on the other's profile image.
 
-Time spent: 10 hours spent on basic requirements. (3 hours on video walkthrough, 
-1.5 hour on relative timestamp, 1 hour on infinite scroll, 2.5 hours on compose tweet,
-1 hour on pull-to-refresh, 1 hour on layout and other stuff.)
+Time spent: 1.5 hours spent on basic requirements. (1.5 hours on video walkthrough) 
 
 Completed user stories:
- * [x] Required: User can sign in using OAuth login flow
- * [x] Required: User can view last 25 tweets from their home timeline
-    * User can see the user, body and timestamp for tweet
-    * User can see the relative timestamp for a tweet
- * [x] Required: User can load more tweets once they reach the bottom of the list using 
-                 "infinite scroll" pagination
- * [x] Required: User can compose a new tweet
-    * User can click a “Compose” icon in the Action Bar on the top right
-    * User will have a Compose view opened
-    * User can enter a message and hit a button to post to twitter
-    * User should be taken back to home timeline with new tweet visible
- * [x] Optional: User can refresh tweets timeline by pulling down to refresh    
-
+ * [x] Required: All required user stories from the previous project
+ * [x] Required: User can switch between Timeline and Mention views using tabs.
+    * User can view their home timeline tweets.
+    * User can view the recent mentions of their username.
+    * User can scroll to bottom of either of these lists and new tweets 
+      will load ("infinite scroll").
+ 
+<!---
 Walkthrough of all user stories: 
 
 ![Video Walkthrough](anim_twitter_app_client.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
+-->
