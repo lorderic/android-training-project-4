@@ -2,21 +2,17 @@ package com.codepath.apps.basictwitter.fragments;
 
 import java.util.ArrayList;
 
-import org.json.JSONArray;
-
 import com.codepath.apps.basictwitter.R;
 import com.codepath.apps.basictwitter.TweetArrayAdapter;
 import com.codepath.apps.basictwitter.TwitterApplication;
 import com.codepath.apps.basictwitter.TwitterClient;
 import com.codepath.apps.basictwitter.models.EndlessScrollListener;
 import com.codepath.apps.basictwitter.models.Tweet;
-import com.loopj.android.http.JsonHttpResponseHandler;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

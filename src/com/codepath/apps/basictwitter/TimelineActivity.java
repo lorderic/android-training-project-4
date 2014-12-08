@@ -40,6 +40,11 @@ public class TimelineActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
 	}
 	
+	public void onProfileView(MenuItem mi){
+		Intent intent = new Intent(this, ProfileActivity.class);
+		startActivity(intent);
+	}
+	
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
     	if (requestCode == 200){

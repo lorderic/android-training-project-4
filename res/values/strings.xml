@@ -12,5 +12,6 @@
     <string name="compose_hint">What\'s happening?</string>
     <string name="btn_post">Tweet!</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="title_activity_profile">Profile</string>
 
 </resources>
