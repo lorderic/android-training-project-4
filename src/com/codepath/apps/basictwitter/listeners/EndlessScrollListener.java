@@ -1,4 +1,6 @@
-package com.codepath.apps.basictwitter.models;
+package com.codepath.apps.basictwitter.listeners;
+
+import com.codepath.apps.basictwitter.models.Tweet;
 
 import android.widget.AbsListView;
 import android.widget.ListView;

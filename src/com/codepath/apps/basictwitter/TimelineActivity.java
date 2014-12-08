@@ -69,7 +69,7 @@ public class TimelineActivity extends FragmentActivity {
 		Tab tab1 = actionBar
 			.newTab()
 			.setText("Home")
-			.setIcon(R.drawable.ic_launcher)
+			.setIcon(R.drawable.ic_home)
 			.setTag("HomeTimelineFragment")
 			.setTabListener(
 				new FragmentTabListener<HomeTimelineFragment>(R.id.flContainer, this, "home",
@@ -81,7 +81,7 @@ public class TimelineActivity extends FragmentActivity {
 		Tab tab2 = actionBar
 			.newTab()
 			.setText("Mentions")
-			.setIcon(R.drawable.ic_launcher)
+			.setIcon(R.drawable.ic_at)
 			.setTag("MentionsTimelineFragment")
 			.setTabListener(
 			    new FragmentTabListener<MentionsTimelineFragment>(R.id.flContainer, this, "mentions",

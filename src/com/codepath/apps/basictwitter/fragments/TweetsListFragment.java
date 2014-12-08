@@ -2,13 +2,16 @@ package com.codepath.apps.basictwitter.fragments;
 
 import java.util.ArrayList;
 
+import com.codepath.apps.basictwitter.ProfileActivity;
 import com.codepath.apps.basictwitter.R;
 import com.codepath.apps.basictwitter.TweetArrayAdapter;
 import com.codepath.apps.basictwitter.TwitterApplication;
 import com.codepath.apps.basictwitter.TwitterClient;
-import com.codepath.apps.basictwitter.models.EndlessScrollListener;
+import com.codepath.apps.basictwitter.listeners.EndlessScrollListener;
 import com.codepath.apps.basictwitter.models.Tweet;
+import com.codepath.apps.basictwitter.models.User;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -16,8 +19,10 @@ import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class TweetsListFragment extends Fragment {
 	
@@ -42,6 +47,18 @@ public class TweetsListFragment extends Fragment {
 		View v = inflater.inflate(R.layout.fragment_tweets_list, container, false);
 		// Assign our view references
 		lvTweets = (ListView) v.findViewById(R.id.lvTweets);
+		lvTweets.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Intent intent = new Intent(getActivity(), ProfileActivity.class);
+				User user = tweets.get(position).getUser();
+				intent.putExtra("user", user);
+				startActivity(intent);
+			}
+			
+		});
+		
 		lvTweets.setAdapter(aTweets);
 		setEndlessScrollListener();
 		/*
@@ -73,7 +90,7 @@ public class TweetsListFragment extends Fragment {
             	refreshTimeline();
             } 
         });
-		
+
 		return v;
 	}
 	

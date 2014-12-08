@@ -1,6 +1,7 @@
 package com.codepath.apps.basictwitter.models;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -8,8 +9,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class Tweet {
+public class Tweet implements Serializable{
 	
+	private static final long serialVersionUID = -4524099076362675616L;
 	private String body;
 	private long uid;
 	private String createdAt;

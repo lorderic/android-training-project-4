@@ -12,12 +12,26 @@ public class UserTimelineFragment extends TweetsListFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		populateTimeline(Long.MAX_VALUE);
+		Bundle bundle = getArguments();
+		if (bundle != null) {
+			long userID = bundle.getLong("userID", -1);
+			populateTimeline(userID);
+		}
+		else 
+			populateTimeline(-1);
+	}
+	
+	public static UserTimelineFragment newInstance(long userID){
+		UserTimelineFragment fragment = new UserTimelineFragment();
+		Bundle bundle = new Bundle();
+		bundle.putLong("userID", userID);
+		fragment.setArguments(bundle);
+		return fragment;
 	}
 	
 	@Override
-	public void populateTimeline(long maxID) {
-		super.populateTimeline(maxID);
+	public void populateTimeline(long userID) {
+		super.populateTimeline(userID);
 		client.getUserTimeline(new JsonHttpResponseHandler() {
 			
 			@Override
@@ -29,6 +43,6 @@ public class UserTimelineFragment extends TweetsListFragment {
 			public void onFailure(Throwable e, String s) {
 				Log.d("DEBUG", e.toString());
 			}
-		});
+		}, userID);
 	}
 }
