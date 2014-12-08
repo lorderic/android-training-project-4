@@ -18,8 +18,8 @@ Completed user stories:
  * [x] Required: User can navigate to view their own profile
     * User can see picture, tagline, # of followers, # of following, and tweets on 
       their profile.
- * [x] Required: User can click on the profile image in any tweet to see another 
-       user's profile.
+ * [x] Required: User can click on the *tweet* in timeline to see another user's 
+       profile.
     * User can see picture, tagline, # of followers, # of following, and tweets of 
       clicked user.
     * Profile view should include that user's timeline
